@@ -8,7 +8,7 @@ const StudentEditList = () => {
   const location=useLocation()
   const students=location.state
   
-  const edit = students?.find((item) => item.id === Number(id))
+  const edit = students?.find((item) => item.id === id)
   console.log(edit)
 
   let refresh=useNavigate()

@@ -7,7 +7,7 @@ const TeacherRead = () => {
   const location = useLocation()
   const teachers = location.state
 
-  const read = teachers.find((item) => item.id === Number(id))
+  const read = teachers.find((item) => item.id === id)
   return (
     <div
       style={{ height: "60dvh" }}

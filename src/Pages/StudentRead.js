@@ -9,7 +9,7 @@ const StudentRead = () => {
     const location = useLocation()
     const students = location.state
     
-    const read=students.find((item)=>item.id===Number(id))
+    const read=students.find((item)=>item.id===id)
   return (
     <div
       style={{ height: "60dvh" }}
