@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
@@ -8,7 +8,7 @@ const StudentEditList = () => {
   const location=useLocation()
   const students=location.state
   
-  const edit = students?.find((item) => item.id == id)
+  const edit = students?.find((item) => item.id === Number(id))
   console.log(edit)
 
   let refresh=useNavigate()
@@ -22,9 +22,7 @@ const StudentEditList = () => {
     const mobileNo = e.target.elements.mobileNo.value
     const studentUpload={name,email,mobileNo}
 
-    const updatedStudent = students.map((student) =>
-      student.id == id ? { ...student, id:id,name:name,email:email,mobileNo:mobileNo } : student
-    )
+    
     await axios.put(`https://64b7f71821b9aa6eb0795f33.mockapi.io/students/${id}`, studentUpload)
     refresh('/students')
   }
